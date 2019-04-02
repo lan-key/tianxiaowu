@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>登录</title>
+<link rel="stylesheet" href="__STATIC__/backstage/logo/css/normalize.css">
+<link rel="stylesheet" href="__STATIC__/backstage/logo/css/login.css">
+<link rel="stylesheet" href="__STATIC__/backstage/logo/css/sign-up-login.css">
+<link rel="stylesheet" type="text/css" href="__STATIC__/backstage/logo/css/font-awesome.min.css">
+<link rel="stylesheet" href="__STATIC__/backstage/logo/css/inputeffect.css" />
+<link rel="stylesheet" href="__STATIC__/backstage/logo/css/tooltips.css" />
+<link rel="stylesheet" href="__STATIC__/backstage/logo/css/spop.min.css" />
+
+<script src="__STATIC__/backstage/logo/js/jquery.min.js"></script>
+<style type="text/css">
+html{width: 100%; height: 100%;}
+body{
+	background-repeat: no-repeat;
+	background-position: center center #2D0F0F;
+	background-color: #00BDDC;
+	background-image: url(__STATIC__/backstage/logo/images/snow.jpg);
+	background-size: 100% 100%;
+}
+.snow-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 100001; }
+</style>
+<style mip-extension="mip-bsml-form">ul,li{list-style:none}.bsml-form-list label{text-align:left;font-size:16px;display:block;margin-bottom:12px;padding:0 16px;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex}.bsml-form-list label span{white-space:nowrap;word-wrap:normal;overflow:hidden;line-height:38px;text-overflow:ellipsis;display:inline-block;-webkit-box-flex:1;-webkit-flex:1;flex:1}.bsml-input,.bsml-date{margin-left:16px;border:#f1f1f1 solid 1px;height:38px;line-height:38px;padding:0 17px;color:#999;font-size:16px}.bsml-singleselect{margin-left:16px;padding:0 17px;border:#f1f1f1 solid 1px;height:38px;line-height:38px;color:#999;font-size:16px;background:#fff;outline:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-webkit-appearance:none}.bsml-multiselect{margin-left:16px;padding:0 17px;border:#f1f1f1 solid 1px;height:38px;line-height:38px;color:#999;font-size:16px;background:#fff;outline:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-webkit-appearance:none}.bsml-form-list-box{padding:12px 16px 0 16px}.bsml-form-list-submit{height:38px;line-height:38px;text-align:center;font-size:18px;background:#ff6d39;color:#fff}.bsml-form-tips{display:none;position:absolute;width:120px;height:rem(60);line-height:rem(60);text-align:center;font-size:rem(12);color:#fff;bottom:30%;left:50%;margin-left:-80px;z-index:999;border-radius:5px;background:rgba(0,0,0,0.3);white-space:nowrap;word-wrap:normal;overflow:hidden;text-overflow:ellipsis}.bsml-form-tips-lay{width:100%;position:fixed;left:0;bottom:0;height:207px;z-index:99;background:rgba(0,0,0,0.5)}.bsml-form-tips-main{width:281px;position:fixed;left:50%;top:50%;height:145px;margin-top:-72.5px;margin-left:-140px;z-index:100;background:#fff;border-radius:6px}.bsml-form-tips-btn{position:absolute;left:0;bottom:0;width:100%;height:42px;line-height:42px;text-align:center;border-top:1px solid #f1f1f1;color:#333;font-size:14px}.bsml-form-tips-icon-1{display:inline-block;margin-top:19px;width:35px;height:35px;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAABHCAYAAABVsFofAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZjJiY2VlMC1mMjljLTQ3N2ItYjUxNS0zMmU2ZTU0ZjZmOGEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDNDMzI1MzM0NzgxMTFFN0I0MDlEN0I5NzBCNzAxMTUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDNDMzI1MzI0NzgxMTFFN0I0MDlEN0I5NzBCNzAxMTUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozMDU0MGM0MC02Y2Q1LTQwNWMtOWZiYy05NmU4YTJlNGFmMmEiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo3Y2ZiYzg3Ny04MmQ2LTExN2EtYWRi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') 0 0 no-repeat;background-size:100%}.bsml-form-tips-icon-2{display:inline-block;margin-top:19px;width:35px;height:35px;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZjJiY2VlMC1mMjljLTQ3N2ItYjUxNS0zMmU2ZTU0ZjZmOGEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjY0QzQ1MDU0ODBGMTFFN0E3QzFGOEQ3MkU5NTExMzQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjY0QzQ1MDQ0ODBGMTFFN0E3QzFGOEQ3MkU5NTExMzQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozMDU0MGM0MC02Y2Q1LTQwNWMtOWZiYy05NmU4YTJlNGFmMmEiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo3Y2ZiYzg3Ny04MmQ2LTExN2EtYWRi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')
+            0 0 no-repeat;background-size:100%}.bsml-form-tips-box{text-align:center}.bsml-form-tips-txt{display:inline-block;font-size:14px;color:#333;margin-top:12px}
+    </style>
+</head>
+<body>
+	<!-- 登录控件 -->
+	<div id="login">
+		<input id="tab-1" type="radio" name="tab" class="sign-in hidden" checked />
+		<input id="tab-2" type="radio" name="tab" class="sign-up hidden" />
+		<input id="tab-3" type="radio" name="tab" class="sign-out hidden" />
+		<div class="wrapper">
+			<!-- 登录页面 -->
+			<div class="login sign-in-htm">
+				<form class="container offset1 loginform" id="submit">
+					<!-- 猫头鹰控件 -->
+					<div id="owl-login" class="login-owl">
+						<div class="hand"></div>
+						<div class="hand hand-r"></div>
+						<div class="arms">
+							<div class="arm"></div>
+							<div class="arm arm-r"></div>
+						</div>
+					</div>
+					<div class="pad input-container">
+						<section class="content">
+							<span class="input input--hideo">
+								<input class="input__field input__field--hideo" type="text" id="username" name="user" autocomplete="off" placeholder="请输入用户名" tabindex="1" maxlength="15" />
+								<label class="input__label input__label--hideo" for="login-username">
+									<i class="fa fa-fw fa-user icon icon--hideo"></i>
+									<span class="input__label-content input__label-content--hideo"></span>
+								</label>
+							</span>
+							<span class="input input--hideo">
+								<input class="input__field input__field--hideo" type="password" id="password" name="password" placeholder="请输入密码" tabindex="2" maxlength="15"/>
+								<label class="input__label input__label--hideo" for="login-password">
+									<i class="fa fa-fw fa-lock icon icon--hideo"></i>
+									<span class="input__label-content input__label-content--hideo"></span>
+								</label>
+							</span>
+						</section>
+					</div>
+					<div class="form-actions">
+						<input class="btn btn-primary" type="button" tabindex="3" value="登录" style="color:white;"/>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="bsml-form-tips-lay" style="height: 0px;" id="display">
+            <div class="bsml-form-tips-main" style="display:none">
+                <div class="bsml-form-tips-box">
+                    <span class="bsml-form-tips-icon bsml-form-tips-icon-2"></span>
+                    <span class="bsml-form-tips-icon bsml-form-tips-icon-1" style="display:none;margin-left: 44%;"></span>
+                </div>
+                <div class="bsml-form-tips-box">
+                    <span class="bsml-form-tips-txt">您还未完成表单填写</span>
+                </div>
+                <div class="bsml-form-tips-btn">我知道了</div>
+            </div>
+        </div>
+	<script type="text/javascript">
+		function display(){
+	        $('#display').css('height','1573px');
+	        $('.bsml-form-tips-lay').css({'height':'1573px','z-index':'2000279'});
+	        $('.bsml-form-tips-main').css('display','block');
+	    }
+	    function none(){
+	        $('#display').css('height','0px');
+	        $('.bsml-form-tips-lay').css({'height':'0px','z-index':'0'});
+	        $('.bsml-form-tips-main').css('display','none');
+	    }
+	    $('.bsml-form-tips-btn').click(function(){
+	        $('.bsml-form-tips-icon-1').css('display','none');
+	        $('.bsml-form-tips-icon-2').css({'display':'block','margin-left':'44%'});
+	        none();
+	    })
+		$('.btn-primary').click(function(){
+        	var username = $('#username').val();
+        	var password = $('#password').val();
+        	if(password == "" || username == "") {
+        		$('.bsml-form-tips-txt').html('请输入用户名或密码');
+	            display();
+	            return false;
+        	}
+	        var submit = $('#submit').serialize();
+	        $.post("{:url('Login/dologo')}",submit,function(data){
+	        	var json = JSON.parse(data);
+	        	if (json.message == 'success') {
+	        		$('.bsml-form-tips-txt').html('登录成功，准备跳转');
+	                $('.bsml-form-tips-icon-1').css('display','block');
+	                $('.bsml-form-tips-icon-2').css('display','none');
+	                display();
+	                setInterval(function(){
+	                	var href = "{:url('Index/Index')}"
+	                	window.location.href= href;
+	                },3000)
+	                return false;
+	        	} else {
+	        		$('.bsml-form-tips-txt').html('登录失败');
+		            display();
+		            return false;
+	        	}
+	        })
+        })
+	</script>
+</body>
+</html>

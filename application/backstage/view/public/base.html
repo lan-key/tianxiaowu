@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>商城管理后台</title>
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <!--STYLESHEET-->
+        <!--=================================================-->
+        <!--Roboto Slab Font [ OPTIONAL ] -->
+        <!--Bootstrap Stylesheet [ REQUIRED ]-->
+        <link href="__STATIC__/backstage/css/bootstrap.min.css" rel="stylesheet">
+        <!--Jasmine Stylesheet [ REQUIRED ]-->
+        <link href="__STATIC__/backstage/css/style.css" rel="stylesheet">
+        <!--Font Awesome [ OPTIONAL ]-->
+        <link href="__STATIC__/backstage/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!--Switchery [ OPTIONAL ]-->
+        <link href="__STATIC__/backstage/plugins/switchery/switchery.min.css" rel="stylesheet">
+        <!--Bootstrap Select [ OPTIONAL ]-->
+        <link href="__STATIC__/backstage/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+        <!--ricksaw.js [ OPTIONAL ]-->
+        <link href="__STATIC__/backstage/plugins/jquery-ricksaw-chart/css/rickshaw.css" rel="stylesheet">
+        <!--Bootstrap Validator [ OPTIONAL ]-->
+        <link href="__STATIC__/backstage/plugins/bootstrap-validator/bootstrapValidator.min.css" rel="stylesheet">
+        <!--Demo [ DEMONSTRATION ]-->
+        <link href="__STATIC__/backstage/css/demo/jquery-steps.min.css" rel="stylesheet">
+        <!--Summernote [ OPTIONAL ]-->
+        <link href="__STATIC__/backstage/plugins/summernote/summernote.min.css" rel="stylesheet">
+        <!--Demo [ DEMONSTRATION ]-->
+        <link href="__STATIC__/backstage/css/demo/jasmine.css" rel="stylesheet">
+        <link href="__STATIC__/backstage/plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="__STATIC__/backstage/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">
+        <!--SCRIPT-->
+        <!--=================================================-->
+        <!--Page Load Progress Bar [ OPTIONAL ]-->
+        <link href="__STATIC__/backstage/plugins/pace/pace.min.css" rel="stylesheet">
+        <script src="__STATIC__/backstage/plugins/pace/pace.min.js"></script>
+        <style mip-extension="mip-bsml-form">ul,li{list-style:none}.bsml-form-list label{text-align:left;font-size:16px;display:block;margin-bottom:12px;padding:0 16px;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex}.bsml-form-list label span{white-space:nowrap;word-wrap:normal;overflow:hidden;line-height:38px;text-overflow:ellipsis;display:inline-block;-webkit-box-flex:1;-webkit-flex:1;flex:1}.bsml-input,.bsml-date{margin-left:16px;border:#f1f1f1 solid 1px;height:38px;line-height:38px;padding:0 17px;color:#999;font-size:16px}.bsml-singleselect{margin-left:16px;padding:0 17px;border:#f1f1f1 solid 1px;height:38px;line-height:38px;color:#999;font-size:16px;background:#fff;outline:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-webkit-appearance:none}.bsml-multiselect{margin-left:16px;padding:0 17px;border:#f1f1f1 solid 1px;height:38px;line-height:38px;color:#999;font-size:16px;background:#fff;outline:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;-webkit-appearance:none}.bsml-form-list-box{padding:12px 16px 0 16px}.bsml-form-list-submit{height:38px;line-height:38px;text-align:center;font-size:18px;background:#ff6d39;color:#fff}.bsml-form-tips{display:none;position:absolute;width:120px;height:rem(60);line-height:rem(60);text-align:center;font-size:rem(12);color:#fff;bottom:30%;left:50%;margin-left:-80px;z-index:999;border-radius:5px;background:rgba(0,0,0,0.3);white-space:nowrap;word-wrap:normal;overflow:hidden;text-overflow:ellipsis}.bsml-form-tips-lay{width:100%;position:fixed;left:0;bottom:0;height:207px;z-index:99;background:rgba(0,0,0,0.5)}.bsml-form-tips-main{width:281px;position:fixed;left:50%;top:50%;height:145px;margin-top:-72.5px;margin-left:-140px;z-index:100;background:#fff;border-radius:6px}.bsml-form-tips-btn{position:absolute;left:0;bottom:0;width:100%;height:42px;line-height:42px;text-align:center;border-top:1px solid #f1f1f1;color:#333;font-size:14px}.bsml-form-tips-icon-1{display:inline-block;margin-top:19px;width:35px;height:35px;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEcAAABHCAYAAABVsFofAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZjJiY2VlMC1mMjljLTQ3N2ItYjUxNS0zMmU2ZTU0ZjZmOGEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDNDMzI1MzM0NzgxMTFFN0I0MDlEN0I5NzBCNzAxMTUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDNDMzI1MzI0NzgxMTFFN0I0MDlEN0I5NzBCNzAxMTUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozMDU0MGM0MC02Y2Q1LTQwNWMtOWZiYy05NmU4YTJlNGFmMmEiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo3Y2ZiYzg3Ny04MmQ2LTExN2EtYWRi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') 0 0 no-repeat;background-size:100%}.bsml-form-tips-icon-2{display:inline-block;margin-top:19px;width:35px;height:35px;background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZjJiY2VlMC1mMjljLTQ3N2ItYjUxNS0zMmU2ZTU0ZjZmOGEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjY0QzQ1MDU0ODBGMTFFN0E3QzFGOEQ3MkU5NTExMzQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjY0QzQ1MDQ0ODBGMTFFN0E3QzFGOEQ3MkU5NTExMzQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozMDU0MGM0MC02Y2Q1LTQwNWMtOWZiYy05NmU4YTJlNGFmMmEiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo3Y2ZiYzg3Ny04MmQ2LTExN2EtYWRi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')
+            0 0 no-repeat;background-size:100%}.bsml-form-tips-box{text-align:center}.bsml-form-tips-txt{display:inline-block;font-size:14px;color:#333;margin-top:12px}
+    </style>
+    </head>
+    <!--TIPS-->
+    <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+    <body>
+        <div class="bsml-form-tips-lay" style="height: 0px;" id="display">
+            <div class="bsml-form-tips-main" style="display:none">
+                <div class="bsml-form-tips-box">
+                    <span class="bsml-form-tips-icon bsml-form-tips-icon-2"></span>
+                    <span class="bsml-form-tips-icon bsml-form-tips-icon-1" style="display:none;margin-left: 44%;"></span>
+                </div>
+                <div class="bsml-form-tips-box">
+                    <span class="bsml-form-tips-txt">您还未完成表单填写</span>
+                </div>
+                <div class="bsml-form-tips-btn">我知道了</div>
+            </div>
+        </div>
+        <div id="container" class="effect mainnav-sm navbar-fixed mainnav-fixed">
+            <!--NAVBAR-->
+            <!--===================================================-->
+            <!-- 头部 header -->
+            {include file="public/header" /}
+            <!-- 头部 header -->
+            <!--===================================================-->
+            <!--END NAVBAR-->
+            <div class="boxed">
+                <!--CONTENT CONTAINER-->
+                <!--===================================================-->
+                <div id="content-container">
+                <div class="pageheader hidden-xs">
+                  <h3><i class="fa fa-home"></i> {$title} </h3>
+                    <div class="breadcrumb-wrapper">
+                      <span class="label">当前页面:</span>
+                         <ol class="breadcrumb">
+                            <li> <a href="#"> {$controller} </a> </li>
+                            <li class="active"> {$action} </li>
+                         </ol>
+                    </div>
+                </div>
+                    <!--Page content-->
+                    <!--===================================================-->
+                    <div id="page-content">
+                        {block name="main"}
+                        {/block}
+                    </div>
+                    <!--===================================================-->
+                    <!--End page content-->
+                </div>
+                <!--===================================================-->
+                <!--END CONTENT CONTAINER-->
+                <!--MAIN NAVIGATION-->
+                <!--===================================================-->
+                {include file="public/left" /}
+                <!--===================================================-->
+                <!--END MAIN NAVIGATION-->
+            </div>
+            <!-- FOOTER -->
+            <!--===================================================-->
+            <!-- 尾部 footer -->
+            {include file="public/footer" /}
+            <!-- 尾部 footer -->
+            <!--===================================================-->
+            <!-- END FOOTER -->
+            <!-- SCROLL TOP BUTTON -->
+            <!--===================================================-->
+            <button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
+            <!--===================================================-->
+        </div>
+        <!--===================================================-->
+        <!-- END OF CONTAINER -->
+        <!--JAVASCRIPT-->
+        <!--=================================================-->
+        <!--jQuery [ REQUIRED ]-->
+        <script src="__STATIC__/backstage/js/jquery-2.1.1.min.js"></script>
+        <!--BootstrapJS [ RECOMMENDED ]-->
+        <script src="__STATIC__/backstage/js/bootstrap.min.js"></script>
+        <!--Fast Click [ OPTIONAL ]-->
+        <script src=__STATIC__/backstage/"plugins/fast-click/fastclick.min.js"></script>
+        <!--Jquery Nano Scroller js [ REQUIRED ]-->
+        <script src="__STATIC__/backstage/plugins/nanoscrollerjs/jquery.nanoscroller.min.js"></script>
+        <!--Metismenu js [ REQUIRED ]-->
+        <script src="__STATIC__/backstage/plugins/metismenu/metismenu.min.js"></script>
+        <!--Jasmine Admin [ RECOMMENDED ]-->
+        <script src="__STATIC__/backstage/js/scripts.js"></script>
+        <!--Switchery [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/switchery/switchery.min.js"></script>
+        <!--Jquery Steps [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/parsley/parsley.min.js"></script>
+        <!--Jquery Steps [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/jquery-steps/jquery-steps.min.js"></script>
+        <!--Bootstrap Select [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+        <!--Bootstrap Wizard [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+        <!--Masked Input [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/masked-input/bootstrap-inputmask.min.js"></script>
+        <!--Bootstrap Validator [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
+        <!--Flot Chart [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/flot-charts/jquery.flot.min.js"></script>
+        <script src="__STATIC__/backstage/plugins/flot-charts/jquery.flot.resize.min.js"></script>
+        <script src="__STATIC__/backstage/plugins/flot-charts/jquery.flot.spline.js"></script>
+        <script src="__STATIC__/backstage/plugins/flot-charts/jquery.flot.pie.min.js"></script>
+        <script src="__STATIC__/backstage/plugins/moment/moment.min.js"></script>
+        <script src="__STATIC__/backstage/plugins/moment-range/moment-range.js"></script>
+        <script src="__STATIC__/backstage/plugins/flot-charts/jquery.flot.tooltip.min.js"></script>
+        <!--Flot Order Bars Chart [ OPTIONAL ] -->
+        <script src="__STATIC__/backstage/plugins/flot-charts/jquery.flot.categories.js"></script>
+        <!--ricksaw.js [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/jquery-ricksaw-chart/js/raphael-min.js"></script>
+        <script src="__STATIC__/backstage/plugins/jquery-ricksaw-chart/js/d3.v2.js"></script>
+        <script src="__STATIC__/backstage/plugins/jquery-ricksaw-chart/js/rickshaw.min.js"></script>
+        <script src="__STATIC__/backstage/plugins/jquery-ricksaw-chart/ricksaw.js"></script>
+       <!--Summernote [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/summernote/summernote.min.js"></script>
+        <!--Fullscreen jQuery [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/screenfull/screenfull.js"></script>
+        <!--Form Wizard [ SAMPLE ]-->
+        <script src="__STATIC__/backstage/js/demo/wizard.js"></script>
+        <!--Form Wizard [ SAMPLE ]-->
+        <script src="__STATIC__/backstage/js/demo/form-wizard.js"></script>
+        <script src="__STATIC__/backstage/js/demo/dashboard-v2.js"></script>
+        <!--DataTables [ OPTIONAL ]-->
+        <script src="__STATIC__/backstage/plugins/datatables/media/js/jquery.dataTables.js"></script>
+        <script src="__STATIC__/backstage/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
+        <script src="__STATIC__/backstage/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+        <!--Fullscreen jQuery [ OPTIONAL ]-->
+        <!--DataTables Sample [ SAMPLE ]-->
+        <script src="__STATIC__/backstage/js/demo/tables-datatables.js"></script>
+        <script src="__STATIC__/backstage/UEditor/ueditor.config.js"></script>
+        <script src="__STATIC__/backstage/UEditor/ueditor.all.min.js"></script>
+        <script type="text/javascript">
+            var ue = UE.getEditor('content',{
+                toolbars:[
+                        ['anchor', 'undo', 'redo', 'bold', 'indent', 'snapscreen', 'italic', 'underline', 'strikethrough', 'subscript', 'fontborder', 'superscript', 'formatmatch', 'source', 'blockquote', 'pasteplain', 'selectall', 'print', 'preview', 'horizontal', 'removeformat', 'time', 'date', 'unlink', 'insertrow', 'insertcol', 'mergeright', 'mergedown', 'deleterow', 'deletecol', 'splittorows', 'splittocols', 'splittocells', 'deletecaption', 'inserttitle', 'mergecells', 'deletetable', 'cleardoc', 'insertparagraphbeforetable', 'insertcode', 'fontfamily', 'fontsize', 'paragraph', 'simpleupload', 'insertimage', 'edittable', 'edittd', 'link', 'emotion', 'spechars','searchreplace', 'map', 'gmap', 'insertvideo', 'help', 'justifyleft', 'justifyright', 'justifycenter', 'justifyjustify', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'fullscreen', 'directionalityltr', 'directionalityrtl', 'rowspacingtop', 'rowspacingbottom', 'pagebreak', 'insertframe', 'imagenone', 'imageleft', 'imageright', 'attachment', 'imagecenter', 'wordimage', 'lineheight', 'edittip ', 'customstyle', 'autotypeset', 'webapp', 'touppercase', 'tolowercase', 'background', 'template', 'scrawl', 'music', 'inserttable', 'drafts', 'charts']
+                    ],
+            });
+
+            function display(){
+                $('#display').css('height','1573px');
+                $('.bsml-form-tips-lay').css({'height':'1573px','z-index':'2000279'});
+                $('.bsml-form-tips-main').css('display','block');
+            }
+            function none(){
+                $('#display').css('height','0px');
+                $('.bsml-form-tips-lay').css({'height':'0px','z-index':'0'});
+                $('.bsml-form-tips-main').css('display','none');
+            }
+            $('.bsml-form-tips-btn').click(function(){
+                $('.bsml-form-tips-icon-1').css('display','none');
+                $('.bsml-form-tips-icon-2').css({'display':'block','margin-left':'44%'});
+                none();
+            })
+        </script>
+    </body>
+</html>

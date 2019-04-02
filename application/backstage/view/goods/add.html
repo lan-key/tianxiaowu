@@ -1,0 +1,141 @@
+{extend name="public/base" /}
+{block name="main"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/backstage/files/css/webuploader.css" />
+<link rel="stylesheet" type="text/css" href="__STATIC__/backstage/files/css/style.css" />
+<script src="__STATIC__/backstage/files/js/jquery-1.9.min.js"></script>
+<script src="__STATIC__/backstage/files/js/webuploader.js"></script>
+<script src="__STATIC__/backstage/files/js/jquery.sortable.js"></script>
+<script src="__STATIC__/backstage/files/js/upload.js"></script>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel">
+            <div class="panel-heading">
+                <div class="panel-control">
+                    <button class="btn btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></button>
+                    <button class="btn btn-default" data-click="panel-reload"><i class="fa fa-refresh"></i></button>
+                    <button class="btn btn-default" data-click="panel-collapse"><i class="fa fa-chevron-down"></i></button>
+                    <button class="btn btn-default" data-dismiss="panel"><i class="fa fa-times"></i></button>
+                </div>
+                <h3 class="panel-title">商品新添加</h3>
+            </div>
+            <form class="panel-body form-horizontal" id="submit">
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="demo-text-input">商品名称：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="title" class="form-control" placeholder="商品名称" name="title">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="demo-email-input">价格标价：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="price" class="form-control" placeholder="价格标价" name="price">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="demo-password-input">商品信息补充:</label>
+                    <div class="col-md-10">
+                        <input type="text" id="supplement" class="form-control" placeholder="商品信息补充" name="supplement">
+                        <small class="help-block">例如：西藏 新疆 青海地区不参与包邮活动</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="demo-email-input">库存量：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="stock" class="form-control" placeholder="库存量" name="stock">
+                    </div>
+                </div>
+                <style type="text/css">.panel .panel-body p+p{margin-top: 0px}</style>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="demo-email-input">商品图上传：</label>
+                    <input type="hidden" name="files" class="files">
+                    <div class="col-md-10">
+                    <!-- 图片上传 -->
+                        <div id="container" style="min-height:0vh">
+                            <div id="uploader" >
+                                <div class="item_container">
+                                    <div id="" class="queueList" >
+                                        <div id="dndArea" class="placeholder">
+                                            <div id="filePicker"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="statusBar" style="display:none;">
+                                    <div class="progress">
+                                        <span class="text">0%</span>
+                                        <span class="percentage"></span>
+                                    </div><div class="info"></div>
+                                    <div class="btns">
+                                        <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- 图片上传 -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="demo-email-input">商品详情：</label>
+                    <div class="col-md-10">
+                        <script id="content" type="text/plain" name="details" style="width: 100%"></script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="demo-email-input">商品规格：</label>
+                    <div class="col-md-10">
+                        <input type="text" id="specif" class="form-control" placeholder="商品规格" name="specif">
+                        <small class="help-block">例如：750克/袋</small>
+                    </div>
+                </div>
+                <div class="form-group pad-ver-5">
+                    <label class="col-md-2 control-label">商品状态：</label>
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label class="form-radio form-icon btn btn-default form-text">
+                            <input type="radio" name="status" value="1" checked> 上架
+                            </label>
+                            <label class="form-radio form-icon btn btn-default form-text">
+                            <input type="radio" name="status" vlaue="2"> 下架
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer text-right">
+                    <div class="btn btn-info add">确定添加</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="__STATIC__/backstage/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    $('.add').click(function(){
+        var title = $('#title').val();
+        var password = $('#password').val();
+        if(title == "") {
+            $('.bsml-form-tips-txt').html('请完善表单');
+            display();
+            return false;
+        }
+        var submit = $('#submit').serialize();
+        $.post("{:url('Goods/insert')}",submit,function(data){
+            var json = JSON.parse(data);
+            if (json == '1') {
+                $('.bsml-form-tips-txt').html('添加成功');
+                $('.bsml-form-tips-icon-1').css('display','block');
+                $('.bsml-form-tips-icon-2').css('display','none');
+                display();
+                setInterval(function(){
+                    var href = "{:url('Goods/Index')}"
+                    window.location.href= href;
+                },3000)
+                return false;
+            } else {
+                $('.bsml-form-tips-txt').html('添加失败，请从新添加');
+                display();
+                return false;
+            }
+        })
+    })
+</script>
+{/block}
+{/extend}
